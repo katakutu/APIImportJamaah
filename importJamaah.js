@@ -22,7 +22,7 @@ var db = require('./config/database');
 var app = module.exports = express();
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3003"); //My frontend APP domain
+  res.header("Access-Control-Allow-Origin", "*"); //My frontend APP domain
   res.header('Access-Control-Allow-Methods', '*');
   res.header('Access-Control-Allow-Headers', '*');
   next();
