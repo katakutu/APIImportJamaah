@@ -45,7 +45,7 @@ exports.login = function(req, res) {
         return user_model.retrieve(param_username)
     })
     .then(function(user){
-        if(user.length <= 0){
+        if(!user){
             result.responseCode = "UN";
             result.responseID = req.requestID;
             result.responseDesc = "User tidak ditemukan";

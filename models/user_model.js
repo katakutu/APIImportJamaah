@@ -36,17 +36,9 @@ exports.saveUser = function (data) {
     })
 }
 
-exports.retrieve = function(data){
-    return new Promise(function (resolve, reject) {
-        query = {username : data};
-		user_collection.findOne(query, function(err, user){
-            if(err) { 
-                reject(err);
-            } else {
-                resolve(user);
-            }
-        })
-	})
+exports.retrieve = function(username){
+    let query = {username : username}
+    return user_collection.findOne(query).exec()
 }
 
 exports.retrieveByUserAlias = function(data){

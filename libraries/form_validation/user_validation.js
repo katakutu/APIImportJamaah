@@ -9,6 +9,11 @@ exports.rules = function(action){
                 'email':'required'
 			}
 			break;
+		case "/user/retrieve":
+			rules = {
+				'username': 'required'
+			}
+			break;
 	}
 	
 	return rules;

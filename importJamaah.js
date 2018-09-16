@@ -18,7 +18,6 @@ var requestLog = require('./models/requestlog');
 var config = require('./config/config');
 var db = require('./config/database');
 
-
 var app = module.exports = express();
 
 app.use(function(req, res, next) {
@@ -29,8 +28,12 @@ app.use(function(req, res, next) {
 });
 
 //Init routes
+var administrative = require('./routes/administrative')
 var user = require('./routes/user');
 var authentication = require('./routes/authentication')
+var product = require('./routes/product')
+var cart = require('./routes/cart')
+var transaction = require('./routes/transaction')
 
 // view engine setup
 app.set('port', process.env.PORT || 4009);
@@ -48,8 +51,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/:any', requestLog.saveRequest);
 
 // set routes
+app.use('/administrative', administrative)
 app.use('/user', user)
 app.use('/authentication', authentication)
+app.use('/product', product)
+app.use('/cart', cart)
+app.use('/transaction', transaction)
+
 app.use('*', function(req,res){
   res.send("Ooopss... Where are you going bruhh??")
 }) 

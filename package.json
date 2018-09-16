@@ -13,6 +13,7 @@
     "url": "localhost:4000/api"
   },
   "dependencies": {
+    "administratif-indonesia": "^0.2.0",
     "artillery": "^1.6.0-12",
     "async": "^2.5.0",
     "body-parser": "~1.17.1",
