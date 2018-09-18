@@ -18,3 +18,8 @@ exports.save = function (data) {
     //Save transaction to mongoDB
     return transaction.save()
 }
+
+exports.retrieve = function(transaction_id){
+    let query = {_id : transaction_id}
+    return transaction_collection.findOne(query).exec()
+}

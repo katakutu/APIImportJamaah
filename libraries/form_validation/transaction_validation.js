@@ -6,6 +6,12 @@ exports.rules = function(action){
 				
 			}
 			break;
+		case "/transaction/retrieve":
+			rules = {
+				
+			}
+			break;
+	
 	}
 	
 	return rules;
