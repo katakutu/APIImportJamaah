@@ -5,6 +5,7 @@ var config = require('../../config/config');
 var exception_handler = require('../../libraries/exception_handler');
 var validator = require('../../libraries/form_validation/user_validation');
 
+var sha256 = require("crypto-js/sha256")
 var indicative = require('indicative')
 
 //init helper
@@ -29,6 +30,7 @@ exports.register = function(req, res) {
     
 	//parameter validation, if valid then check merchant wether member of the aggregator's or not
 	indicative.validate(param_decode, rules, '').then(function () {
+        param_decode.password = sha256(param_decode.password + param_decode.username.toUpperCase()) + "";
         return user_model.saveUser(param_decode)
     })
     .then(function(user){
@@ -40,7 +42,7 @@ exports.register = function(req, res) {
         res.send(result);
     })
 	.catch(function (errors) {
-		console.log(errors);
+		//console.log(errors);
 		exception_handler.handlingError(req, errors, param_decode, res);
 	})
 };

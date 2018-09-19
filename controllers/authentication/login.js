@@ -8,6 +8,7 @@ var dateformat = require('dateformat')
 var token_lib = require("../../libraries/token_library")
 
 var indicative = require('indicative')
+var sha256 = require("crypto-js/sha256")
 
 //init helper
 
@@ -54,7 +55,10 @@ exports.login = function(req, res) {
             res.send(result);
         } else {
             password_stored = user.password
-            if(param_password == password_stored){
+            password_input = sha256(param_decode.password + user.username.toUpperCase());
+            console.log(password_input)
+            console.log(password_stored)
+            if(password_input == password_stored){
                 user_data = {
                     username : user.username,
                     email : user.email,

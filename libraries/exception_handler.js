@@ -18,6 +18,7 @@ exports.handlingError = function (req, errors, param_decode, res) {
     }
 
     if(errors[0]){
+        console.log("oejfoiewjwiojoiwjgoiwejgioe")
         if(errors[0].field){
             result.responseCode = config.error_code.validation.rc;
             result.responseID = req.requestID;
@@ -38,6 +39,7 @@ exports.handlingError = function (req, errors, param_decode, res) {
     {
         ListError.retrieve(errors, param_decode, function(err, errorObj){
             if(err){
+                //console.log(err)
                 result.responseCode = config.error_code.general.rc;
                 result.responseID = req.requestID;
                 result.responseDesc = config.error_code.general.desc;
@@ -57,6 +59,8 @@ exports.handlingError = function (req, errors, param_decode, res) {
                 }
                 result.responseData = errors.responseData;
             }
+
+            console.log("wkkwkwkwkwkwkwk")
             responseLog.saveResponse(result);
             res.send(result);
         });
@@ -68,9 +72,16 @@ exports.handlingError = function (req, errors, param_decode, res) {
             result.responseCode = errors.statusCode + "";
             result.responseID = req.requestID;
             result.responseDesc = errors.message;
+            result.responseData = ""; 
+        }
+        else if(errors.code){
+            result.responseCode = errors.code + "";
+            result.responseID = req.requestID;
+            result.responseDesc = errors.message;
             result.responseData = errors.error;
         }
-        else {
+        else 
+        {
             result.responseCode = config.error_code.general.rc;
             result.responseID = req.requestID;
             result.responseDesc = config.error_code.general.desc;
