@@ -10,6 +10,9 @@ var fs = require('fs');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var lessMiddleware = require('less-middleware');
+var cors = require('cors')
+ 
+
 
 //init model
 var requestLog = require('./models/requestlog');
@@ -20,9 +23,10 @@ var db = require('./config/database');
 
 var app = module.exports = express();
 
+app.use(cors())
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); //My frontend APP domain
-  res.header('Access-Control-Allow-Methods', '*');
   res.header('Access-Control-Allow-Headers', '*');
   next();
 });
