@@ -23,3 +23,8 @@ exports.retrieve = function(transaction_id){
     let query = {_id : transaction_id}
     return transaction_collection.findOne(query).exec()
 }
+
+exports.retrieveList = function(query){
+    delete query.requestID
+    return transaction_collection.find(query).exec()
+}
