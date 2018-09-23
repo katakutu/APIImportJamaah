@@ -36,17 +36,17 @@ exports.saveProduct = function (data) {
     })
 }
 
-exports.retrieve = function(data){
-    return new Promise(function (resolve, reject) {
-        query = data
-        delete query.requestID
-        console.log(query)
-		product_collection.find(query, function(err, product){
-            if(err) { 
-                reject(err);
-            } else {
-                resolve(product);
-            }
-        })
-	})
+exports.retrieve = function(query){
+    delete query.requestID
+    return product_collection.find(query).exec()
+}
+
+exports.update = function(query, data){
+    // return product_collection.update(query, { $set: data}, { multi: true })
+    return product_collection.findOne(query).exec()
+    .then(function(product){
+        product.rupiah_collected = parseInt(product.rupiah_collected) + parseInt(data.rupiah)
+        product.quantity_collected = parseInt(product.quantity_collected) + parseInt(data.quantity)
+        return product.save()
+    })
 }
