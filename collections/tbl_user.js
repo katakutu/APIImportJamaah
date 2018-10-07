@@ -21,5 +21,7 @@ var UserSchema = new mongoose.Schema({
     "user_alias": String
 });
 
+UserSchema.statics.findOrCreate = require("find-or-create");
+
 var User = mongoose.model('tbl_user', UserSchema);
 module.exports = User;

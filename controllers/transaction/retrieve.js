@@ -12,7 +12,7 @@ var indicative = require('indicative')
 //init model
 var transaction_model = require('../../models/transaction_model');
 
-var result = require('../../models/objectResponse');
+//var result = require('../../models/objectResponse');
 var responseLog = require('../../models/responselog');
 
 exports.retrieve = function(req, res) {
@@ -26,6 +26,8 @@ exports.retrieve = function(req, res) {
     var response_code = "";
     var response_data = {};
     var reference_number = '';
+
+    let result = {}
     
 	//parameter validation, if valid then check merchant wether member of the aggregator's or not
 	indicative.validate(param_decode, rules, '').then(function () {

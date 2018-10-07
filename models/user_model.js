@@ -36,6 +36,12 @@ exports.saveUser = function (data) {
     })
 }
 
+exports.findOrCreate = function (data, update, done) {
+    user_collection.findOrCreate(data, update, function(err, result){
+        done(null, result)
+    })
+}
+
 exports.retrieve = function(username){
     let query = {username : username}
     return user_collection.findOne(query).exec()

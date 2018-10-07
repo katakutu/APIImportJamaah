@@ -8,11 +8,10 @@ mongoose.Promise = require('bluebird');
 var path = require('path');
 var fs = require('fs');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var lessMiddleware = require('less-middleware');
+var cookieParser = require('cookie-parser')
+var passport = require('passport')
+var lessMiddleware = require('less-middleware')
 var cors = require('cors')
- 
-
 
 //init model
 var requestLog = require('./models/requestlog');
@@ -30,6 +29,17 @@ app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Headers', '*');
   next();
 });
+// Setting up local https support
+var fs = require('fs');
+var https = require('https');
+
+var options = {
+    key: fs.readFileSync('/certificate/server.key'),
+    cert: fs.readFileSync('/certificate/server.crt'),
+    passphrase: 'Jakarta123',
+    requestCert: false,
+    rejectUnauthorized: false
+};
 
 //Init routes
 var administrative = require('./routes/administrative')
@@ -50,6 +60,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // save log into mongoDB
 app.use('/:any', requestLog.saveRequest);
@@ -75,10 +88,19 @@ conn.once('open', function (errmg){
     console.log('Connection to MongoDB error: ' + errmg);
     process.exit(1);
   } else {
+    /**************************** HTTPS MODE ******************************
+    https.createServer(options, app).listen(app.get('port'),function(){
+      console.log('Express server lisening on port ' + app.get('port'));
+      console.log(process.env.NODE_ENV)
+    });
+    /********************************************************************** */
+
+    /****************************** HTTP MODE  ********************************/
     app.listen(app.get('port'),function(){
       console.log('Express server lisening on port ' + app.get('port'));
       console.log(process.env.NODE_ENV)
     });
+
     console.log("Mongoose connection opened on process " + process.pid);
   }
 });

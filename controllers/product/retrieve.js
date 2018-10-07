@@ -41,11 +41,19 @@ exports.retrieve = function(req, res) {
         if(!product){
             result.responseCode = "PX";
             result.responseID = req.requestID;
-            result.responseDesc = "Product tidak ditemukan";
+            result.responseDesc = "Product tidak ditemukan, Error system";
             result.responseData = "";		
             responseLog.saveResponse(result);
             res.send(result);
         } else {
+            if(product.length <= 0){
+                result.responseCode = "PN";
+                result.responseID = req.requestID;
+                result.responseDesc = "retrieve data produk gagal";
+                result.responseData = [];		
+                throw result
+            }
+
             result.responseCode = "00";
             result.responseID = req.requestID;
             result.responseDesc = "retrieve product berhasil";

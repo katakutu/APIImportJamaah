@@ -68,6 +68,12 @@ module.exports = {
 			
 		}
 	},
+
+	facebook : {
+		client_id : '881998715303945',
+		client_secret : '93c75196251172f7de76e772a0864123',
+		callback_url : 'http://localhost:4009/authentication/login-facebook'
+	},
   
 	'config_db' : {
 		'aggregator_mpn' : {
