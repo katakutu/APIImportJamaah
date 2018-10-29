@@ -1,0 +1,46 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.12.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - artillery > arrivals > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > socket.io-client > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > socket.io-client > engine.io-client > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - node-rest-client > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-plugin-statsd > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > socket.io-client > socket.io-parser > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > arrivals > debug:
+        patched: '2018-10-29T06:36:24.697Z'
+  'npm:lodash:20180130':
+    - artillery > artillery-plugin-statsd > lodash:
+        patched: '2018-10-29T06:36:24.697Z'
+  'npm:ms:20170412':
+    - artillery > arrivals > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > arrivals > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > socket.io-client > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > socket.io-client > engine.io-client > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - node-rest-client > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-plugin-statsd > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
+    - artillery > artillery-core > socket.io-client > socket.io-parser > debug > ms:
+        patched: '2018-10-29T06:36:24.697Z'
