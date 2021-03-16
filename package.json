@@ -50,7 +50,7 @@
     "phpdate-js": "^1.0.3",
     "request-promise": "^4.2.2",
     "serve-favicon": "~2.4.2",
-    "soap": "^0.24.0",
+    "soap": "^0.35.0",
     "validator": "^9.4.1",
     "winston": "^2.4.0",
     "xmlreader": "^0.2.3",
