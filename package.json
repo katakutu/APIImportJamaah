@@ -51,7 +51,7 @@
     "request-promise": "^4.2.2",
     "serve-favicon": "~2.4.2",
     "soap": "^0.24.0",
-    "validator": "^9.4.1",
+    "validator": "^13.6.0",
     "winston": "^2.4.0",
     "xmlreader": "^0.2.3",
     "snyk": "^1.105.0"
