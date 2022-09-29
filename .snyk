@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.12.0
+version: v1.25.0
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -44,3 +44,41 @@ patch:
         patched: '2018-10-29T06:36:24.697Z'
     - artillery > artillery-core > socket.io-client > socket.io-parser > debug > ms:
         patched: '2018-10-29T06:36:24.697Z'
+  'npm:extend:20180424':
+    - soap > request > extend:
+        patched: '2022-09-29T08:42:19.542Z'
+    - less-middleware > less > request > extend:
+        patched: '2022-09-29T08:42:19.542Z'
+  'npm:hoek:20180212':
+    - soap > request > hawk > hoek:
+        patched: '2022-09-29T08:42:19.542Z'
+    - soap > request > hawk > boom > hoek:
+        patched: '2022-09-29T08:42:19.542Z'
+    - soap > request > hawk > sntp > hoek:
+        patched: '2022-09-29T08:42:19.542Z'
+    - soap > request > hawk > cryptiles > boom > hoek:
+        patched: '2022-09-29T08:42:19.542Z'
+  SNYK-JS-LODASH-567746:
+    - async > lodash:
+        patched: '2022-09-29T08:42:19.542Z'
+    - indicative > lodash:
+        patched: '2022-09-29T08:42:19.542Z'
+    - indicative > haye > lodash:
+        patched: '2022-09-29T08:42:19.542Z'
+    - mongoose > async > lodash:
+        patched: '2022-09-29T08:42:19.542Z'
+    - request-promise > request-promise-core > lodash:
+        patched: '2022-09-29T08:42:19.542Z'
+  'npm:mime:20170907':
+    - less-middleware > less > mime:
+        patched: '2022-09-29T08:42:19.542Z'
+    - soap > serve-static > send > mime:
+        patched: '2022-09-29T08:42:19.542Z'
+  'npm:moment:20170905':
+    - indicative > moment:
+        patched: '2022-09-29T08:42:19.542Z'
+  'npm:stringstream:20180511':
+    - soap > request > stringstream:
+        patched: '2022-09-29T08:42:19.542Z'
+    - less-middleware > less > request > stringstream:
+        patched: '2022-09-29T08:42:19.542Z'
