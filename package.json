@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "administratif-indonesia": "^0.2.0",
-    "artillery": "^1.6.0-12",
+    "artillery": "^2.0.1",
     "async": "^2.5.0",
     "body-parser": "~1.18.2",
     "busboy": "^0.2.14",
